@@ -533,5 +533,3 @@ Median Alcohol Content and IBU:
 </tbody>
 </table>
 
-
-```

@@ -35,10 +35,11 @@ How many breweries per state:
 
 State_Brews <-  aggregate(Brew_ID ~ State , Brews, length)
 
-
-
 colnames(State_Brews) <- c("State","NumberofBreweries")
-#State_Brews[rev(order(State_Brews$NumberofBreweries)),]
+
+State_Brews <- State_Brews[order(State_Brews$NumberofBreweries,decreasing = TRUE),]
+
+
 par(las=2)
 par(mar = c(3, 3, 1, 1))
 barplot(State_Brews$NumberofBreweries, names.arg = State_Brews$State, col = "Red", main = "Number of Breweries per State",  xlab = "Count", ylab = "State",  xlim = c(0,50), horiz = TRUE)
@@ -120,5 +121,3 @@ kable((median_table), "html") %>% kable_styling(bootstrap_options="striped", ful
 
 ```
 
-
-```
