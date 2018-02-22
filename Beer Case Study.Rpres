@@ -1,0 +1,124 @@
+Beer Case Study
+========================================================
+author: Cho Kim, Nicole Wittlin, and Jonathan Marin
+date: 2/20/2018
+autosize: true
+
+Introduction
+========================================================
+We will be examining beer data and wish to conduct an exploratory analysis to answer the following questions:
+- How many Breweries are present in each state?
+- Print the top and bottom 6 brew and beer data. 
+- Report the Number of NA's in each column of the dataset
+- Compute the median alcohol content and ibu for each state.
+- Which state has the max ABV Beer? Which state has the most bitter (IBU) beer?
+- Summary stats for the ABV variable
+- And finally find if there is a relationship between bitterness and alcoholic content. 
+
+Data
+========================================================
+
+Beer and Brewery data was provided by two csv files.  The brewery data lists the brewerys by state and the beer data contains the beers that breweries have to offer with that corresponding beer data. 
+
+```{r echo = TRUE}
+setwd("C:/Users/Marin Family/Desktop/Doing Data Science/Case Study1 Git")
+
+#Read the data
+Beers <- read.csv("Beers.csv")
+Brews <- read.csv("Breweries.csv")
+
+```
+How many breweries per state:
+========================================================
+
+```{r, echo=FALSE, include = TRUE, fig.width = 16, fig.height =12}
+
+State_Brews <-  aggregate(Brew_ID ~ State , Brews, length)
+
+
+
+colnames(State_Brews) <- c("State","NumberofBreweries")
+#State_Brews[rev(order(State_Brews$NumberofBreweries)),]
+par(las=2)
+par(mar = c(3, 3, 1, 1))
+barplot(State_Brews$NumberofBreweries, names.arg = State_Brews$State, col = "Red", main = "Number of Breweries per State",  xlab = "Count", ylab = "State",  xlim = c(0,50), horiz = TRUE)
+
+
+
+```
+
+First 6 Breweries:
+========================================================
+```{r echo = FALSE, include = TRUE, fig.width = 20}
+library(sqldf)
+library(magrittr)
+library(kableExtra)
+Beer_Data <- sqldf("select a.Brew_ID, a.Name as 'BrewName', a.City, a.State, b.Name as 'BeerName', b.ABV, b.IBU, b.Style, b.Ounces from Brews a join Beers b on a.Brew_ID = b.Brewery_id")
+
+kable(head(Beer_Data), "html") %>% kable_styling(bootstrap_options="striped", full_width = F, font_size = 14)
+
+
+
+```
+
+Last 6 Breweries:
+========================================================
+```{r echo = FALSE, include = TRUE, fig.width = 20}
+
+
+kable(tail(Beer_Data), "html") %>% kable_styling(bootstrap_options="striped", full_width = F, font_size = 14)
+
+```
+
+
+Number of NAs:
+========================================================
+```{r echo = FALSE, include = TRUE}
+
+Brew_ID_NA <-sum(is.na(Beer_Data$Brew_ID))
+BrewName_NA<-sum(is.na(Beer_Data$BrewName))
+City_NA <- sum(is.na(Beer_Data$City))
+State_NA <- sum(is.na(Beer_Data$State))
+BeerName_NA <- sum(is.na(Beer_Data$BeerName))
+ABV_NA <- sum(is.na(Beer_Data$ABV))
+IBU_NA <- sum(is.na(Beer_Data$IBU))
+Style_NA <- sum(is.na(Beer_Data$Style))
+Ounces_NA <- sum(is.na(Beer_Data$Ounces))
+
+na_columns <- data.frame(matrix(ncol =2, nrow=0))
+
+colnames(na_columns) <- c("ColumnName", "NumberOfNAs")
+
+na_columns[nrow(na_columns) +1,] = c("Brew_ID", Brew_ID_NA)
+na_columns[nrow(na_columns) +1,] = c("BrewName", BrewName_NA)
+na_columns[nrow(na_columns) +1,] = c("City", City_NA)
+na_columns[nrow(na_columns) +1,] = c("State", State_NA)
+na_columns[nrow(na_columns) +1,] = c("BeerName", BeerName_NA)
+na_columns[nrow(na_columns) +1,] = c("ABV", ABV_NA)
+na_columns[nrow(na_columns) +1,] = c("IBU", IBU_NA)
+na_columns[nrow(na_columns) +1,] = c("Style", Style_NA)
+na_columns[nrow(na_columns) +1,] = c("Ounces", Ounces_NA)
+
+
+kable((na_columns), "html") %>% kable_styling(bootstrap_options="striped", full_width = F, font_size = 14)
+
+````
+
+
+Median Alcohol Content and IBU:
+========================================================
+
+```{r echo = FALSE, include = TRUE}
+
+
+ABV_Median <- aggregate(ABV ~ State, data = Beer_Data, median, na.action = na.omit)
+IBU_Median <- aggregate(IBU ~ State, data = Beer_Data, median, na.action = na.omit)
+
+median_table <- sqldf("select a.State, ABV as 'ABV Median', b.IBU as 'IBU Median' from ABV_Median a left join IBU_Median b on a.State = b.State")
+
+kable((median_table), "html") %>% kable_styling(bootstrap_options="striped", full_width = F, font_size = 14)
+
+```
+
+
+```
