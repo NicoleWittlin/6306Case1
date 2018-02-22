@@ -22,16 +22,21 @@ Beer and Brewery data was provided by two csv files.  The brewery data lists the
 
 
 ```r
-setwd("C:/Users/Marin Family/Desktop/Doing Data Science/Case Study1 Git")
+#setwd("C:/Users/Marin Family/Desktop/Doing Data Science/Case Study1 Git")
 
 #Read the data
-Beers <- read.csv("Beers.csv")
-Brews <- read.csv("Breweries.csv")
+Beers <- read.csv("Beers.csv", encoding='UTF-8')
+Brews <- read.csv("Breweries.csv", encoding='UTF-8', sep=",")
 ```
 How many breweries per state:
 ========================================================
 
 ![plot of chunk unnamed-chunk-2](Beer Case Study-figure/unnamed-chunk-2-1.png)
+
+How many breweries per state (using ggplot):
+========================================================
+
+![plot of chunk unnamed-chunk-3](Beer Case Study-figure/unnamed-chunk-3-1.png)
 
 First 6 Observations:
 ========================================================
@@ -551,4 +556,4 @@ summary_ABV
 Summary Stats for ABV
 ========================================================
 
-![plot of chunk unnamed-chunk-8](Beer Case Study-figure/unnamed-chunk-8-1.png)
+![plot of chunk unnamed-chunk-9](Beer Case Study-figure/unnamed-chunk-9-1.png)
