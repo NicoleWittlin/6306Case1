@@ -33,7 +33,7 @@ How many breweries per state:
 
 ![plot of chunk unnamed-chunk-2](Beer Case Study-figure/unnamed-chunk-2-1.png)
 
-First 6 Breweries:
+First 6 Observations:
 ========================================================
 <table class="table table-striped" style="font-size: 14px; width: auto !important; margin-left: auto; margin-right: auto;">
  <thead>
@@ -119,7 +119,7 @@ First 6 Breweries:
 </tbody>
 </table>
 
-Last 6 Breweries:
+Last 6 Observations:
 ========================================================
 <table class="table table-striped" style="font-size: 14px; width: auto !important; margin-left: auto; margin-right: auto;">
  <thead>
@@ -533,3 +533,22 @@ Median Alcohol Content and IBU:
 </tbody>
 </table>
 
+Summary Stats for ABV
+========================================================
+
+
+```r
+summary_ABV <- (summary(Beer_Data$ABV))
+
+summary_ABV
+```
+
+```
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+0.00100 0.05000 0.05600 0.05977 0.06700 0.12800      62 
+```
+
+Summary Stats for ABV
+========================================================
+
+![plot of chunk unnamed-chunk-8](Beer Case Study-figure/unnamed-chunk-8-1.png)

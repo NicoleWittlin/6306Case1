@@ -48,12 +48,13 @@ barplot(State_Brews$NumberofBreweries, names.arg = State_Brews$State, col = "Red
 
 ```
 
-First 6 Breweries:
+First 6 Observations:
 ========================================================
 ```{r echo = FALSE, include = TRUE, fig.width = 20}
 library(sqldf)
 library(magrittr)
 library(kableExtra)
+
 Beer_Data <- sqldf("select a.Brew_ID, a.Name as 'BrewName', a.City, a.State, b.Name as 'BeerName', b.ABV, b.IBU, b.Style, b.Ounces from Brews a join Beers b on a.Brew_ID = b.Brewery_id")
 
 kable(head(Beer_Data), "html") %>% kable_styling(bootstrap_options="striped", full_width = F, font_size = 14)
@@ -62,7 +63,7 @@ kable(head(Beer_Data), "html") %>% kable_styling(bootstrap_options="striped", fu
 
 ```
 
-Last 6 Breweries:
+Last 6 Observations:
 ========================================================
 ```{r echo = FALSE, include = TRUE, fig.width = 20}
 
@@ -121,3 +122,26 @@ kable((median_table), "html") %>% kable_styling(bootstrap_options="striped", ful
 
 ```
 
+Summary Stats for ABV
+========================================================
+
+```{r echo = TRUE, include = TRUE, fig.width = 16, fig.height =12}
+
+summary_ABV <- (summary(Beer_Data$ABV))
+
+summary_ABV
+
+```
+
+Summary Stats for ABV
+========================================================
+
+```{r echo = FALSE, include = TRUE, fig.width = 12, fig.height =12}
+
+par(las=2)
+par(mar = c(3, 3, 1, 1))
+plot(Beer_Data$ABV ~ Beer_Data$IBU, main = "Relationship between ABV and IBU", xlab = "ABV", ylab = "IBU")
+
+
+
+```
