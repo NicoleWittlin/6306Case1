@@ -26,11 +26,7 @@ Beer and Brewery data was provided by two csv files.  The brewery data lists the
 
 #Read the data
 Beers <- read.csv("Beers.csv", encoding='UTF-8')
-<<<<<<< HEAD
-Brews <- read.csv("Breweries.csv", encoding='UTF-8')
-=======
 Brews <- read.csv("Breweries.csv", encoding='UTF-8', sep=",")
->>>>>>> 1583dfaa4ea71ac4348034087c9537c1e0330ed6
 ```
 How many breweries per state:
 ========================================================
@@ -40,7 +36,7 @@ How many breweries per state:
 How many breweries per state (using ggplot):
 ========================================================
 
-![plot of chunk unnamed-chunk-3](Beer Case Study-figure/unnamed-chunk-3-1.png)
+<img src="Beer Case Study-figure/unnamed-chunk-3-1.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" style="display: block; margin: auto;" />
 
 First 6 Observations:
 ========================================================
