@@ -26,12 +26,21 @@ Beer and Brewery data was provided by two csv files.  The brewery data lists the
 
 #Read the data
 Beers <- read.csv("Beers.csv", encoding='UTF-8')
+<<<<<<< HEAD
 Brews <- read.csv("Breweries.csv", encoding='UTF-8')
+=======
+Brews <- read.csv("Breweries.csv", encoding='UTF-8', sep=",")
+>>>>>>> 1583dfaa4ea71ac4348034087c9537c1e0330ed6
 ```
 How many breweries per state:
 ========================================================
 
 ![plot of chunk unnamed-chunk-2](Beer Case Study-figure/unnamed-chunk-2-1.png)
+
+How many breweries per state (using ggplot):
+========================================================
+
+![plot of chunk unnamed-chunk-3](Beer Case Study-figure/unnamed-chunk-3-1.png)
 
 First 6 Observations:
 ========================================================
@@ -551,4 +560,4 @@ summary_ABV
 Scatter Plot
 ========================================================
 
-![plot of chunk unnamed-chunk-8](Beer Case Study-figure/unnamed-chunk-8-1.png)
+![plot of chunk unnamed-chunk-9](Beer Case Study-figure/unnamed-chunk-9-1.png)
