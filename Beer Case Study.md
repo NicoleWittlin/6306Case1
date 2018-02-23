@@ -36,7 +36,7 @@ How many breweries per state:
 How many breweries per state (using ggplot):
 ========================================================
 
-![plot of chunk unnamed-chunk-3](Beer Case Study-figure/unnamed-chunk-3-1.png)
+<img src="Beer Case Study-figure/unnamed-chunk-3-1.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" style="display: block; margin: auto;" />
 
 First 6 Observations:
 ========================================================
@@ -553,7 +553,7 @@ summary_ABV
 0.00100 0.05000 0.05600 0.05977 0.06700 0.12800      62 
 ```
 
-Summary Stats for ABV
+Scatter Plot
 ========================================================
 
 ![plot of chunk unnamed-chunk-9](Beer Case Study-figure/unnamed-chunk-9-1.png)

@@ -52,7 +52,7 @@ barplot(State_Brews$NumberofBreweries, names.arg = State_Brews$State, col = "Red
 How many breweries per state (using ggplot):
 ========================================================
 
-```{r, echo=FALSE, include = TRUE, fig.width = 16, fig.height =12}
+```{r, echo=FALSE, include = TRUE, fig.width = 35, fig.height =20, fig.align = 'center'}
 
 State_Brews <-  aggregate(Brew_ID ~ State , Brews, length)
 
@@ -93,10 +93,13 @@ stateFromLower <-function(x) {
   
 }
 
+
+
 State_Brews$State <- stateFromLower(State_Brews$State)
 State_Brewsm <- reshape2::melt(State_Brews, id=1)
 map_data <-map_data("state")
-ggplot(State_Brewsm, aes(map_id = State)) + geom_map(aes(fill=value), map=map_data) + expand_limits(x=map_data$long, y=map_data$lat)
+ggplot(State_Brewsm, aes(map_id = State)) + geom_map(aes(fill=value), map=map_data) +  theme(legend.text=element_text(size=24)) + theme(axis.text = element_text(size = 18), axis.title = element_text(size = rel(1.75))) + theme(legend.key.size = unit(3, "in")) + expand_limits(x=map_data$long, y=map_data$lat)
+
 
 ```
 
@@ -186,7 +189,7 @@ summary_ABV
 
 ```
 
-Summary Stats for ABV
+Scatter Plot
 ========================================================
 
 ```{r echo = FALSE, include = TRUE, fig.width = 12, fig.height =12}
