@@ -134,7 +134,7 @@ summary_ABV
 
 ```
 
-Summary Stats for ABV
+Scatter Plot
 ========================================================
 
 ```{r echo = FALSE, include = TRUE, fig.width = 12, fig.height =12}
