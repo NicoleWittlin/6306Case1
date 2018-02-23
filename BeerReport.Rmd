@@ -155,5 +155,5 @@ summary_ABV
 
 #### ABV vs IBU scatter plot
 ```{r echo = TRUE}
-ggplot(Beer_Data, aes(x=IBU, y=ABVinPercent)) + geom_point()
+ggplot(Beer_Data, aes(x=IBU, y=ABVinPercent)) + geom_point()+labs(y="ABV(%)", title = "ABV in % vs IBU")
 ```
