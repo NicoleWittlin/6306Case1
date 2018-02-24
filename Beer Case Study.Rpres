@@ -199,5 +199,14 @@ par(mar = c(3, 3, 1, 1))
 plot(Beer_Data$ABV ~ Beer_Data$IBU, main = "Relationship between ABV and IBU", xlab = "ABV", ylab = "IBU")
 
 
+g <- ggplot(Beer_Data, aes(ABV, IBU))
+
+# Scatterplot
+g + geom_point() + 
+  geom_smooth(method="lm", se=F) + 
+  labs(y="IBU", 
+       x="ABV", 
+       title="Relationship between ABV and IBU")  
+
 
 ```
