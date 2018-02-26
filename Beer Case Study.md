@@ -271,7 +271,7 @@ Number of NAs:
 Median Alcohol Content and IBU:
 ========================================================
 
-<table class="table table-striped" style="font-size: 14px; width: auto !important; margin-left: auto; margin-right: auto;">
+![plot of chunk unnamed-chunk-7](Beer Case Study-figure/unnamed-chunk-7-1.png)<table class="table table-striped" style="font-size: 14px; width: auto !important; margin-left: auto; margin-right: auto;">
  <thead>
   <tr>
    <th style="text-align:left;"> State </th>
@@ -281,257 +281,257 @@ Median Alcohol Content and IBU:
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> AK </td>
+   <td style="text-align:left;"> alaska </td>
    <td style="text-align:right;"> 0.0560 </td>
    <td style="text-align:right;"> 46.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> AL </td>
+   <td style="text-align:left;"> alabama </td>
    <td style="text-align:right;"> 0.0600 </td>
    <td style="text-align:right;"> 43.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> AR </td>
+   <td style="text-align:left;"> arkansas </td>
    <td style="text-align:right;"> 0.0520 </td>
    <td style="text-align:right;"> 39.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> AZ </td>
+   <td style="text-align:left;"> arizona </td>
    <td style="text-align:right;"> 0.0550 </td>
    <td style="text-align:right;"> 20.5 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> CA </td>
+   <td style="text-align:left;"> california </td>
    <td style="text-align:right;"> 0.0580 </td>
    <td style="text-align:right;"> 42.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> CO </td>
+   <td style="text-align:left;"> colorado </td>
    <td style="text-align:right;"> 0.0605 </td>
    <td style="text-align:right;"> 40.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> CT </td>
+   <td style="text-align:left;"> connecticut </td>
    <td style="text-align:right;"> 0.0600 </td>
    <td style="text-align:right;"> 29.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> DC </td>
+   <td style="text-align:left;"> district of columbia </td>
    <td style="text-align:right;"> 0.0625 </td>
    <td style="text-align:right;"> 47.5 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> DE </td>
+   <td style="text-align:left;"> delaware </td>
    <td style="text-align:right;"> 0.0550 </td>
    <td style="text-align:right;"> 52.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> FL </td>
+   <td style="text-align:left;"> florida </td>
    <td style="text-align:right;"> 0.0570 </td>
    <td style="text-align:right;"> 55.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> GA </td>
+   <td style="text-align:left;"> georgia </td>
    <td style="text-align:right;"> 0.0550 </td>
    <td style="text-align:right;"> 55.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> HI </td>
+   <td style="text-align:left;"> hawaii </td>
    <td style="text-align:right;"> 0.0540 </td>
    <td style="text-align:right;"> 22.5 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> IA </td>
+   <td style="text-align:left;"> iowa </td>
    <td style="text-align:right;"> 0.0555 </td>
    <td style="text-align:right;"> 26.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> ID </td>
+   <td style="text-align:left;"> idaho </td>
    <td style="text-align:right;"> 0.0565 </td>
    <td style="text-align:right;"> 39.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> IL </td>
+   <td style="text-align:left;"> illinois </td>
    <td style="text-align:right;"> 0.0580 </td>
    <td style="text-align:right;"> 30.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> IN </td>
+   <td style="text-align:left;"> indiana </td>
    <td style="text-align:right;"> 0.0580 </td>
    <td style="text-align:right;"> 33.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> KS </td>
+   <td style="text-align:left;"> kansas </td>
    <td style="text-align:right;"> 0.0500 </td>
    <td style="text-align:right;"> 20.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> KY </td>
+   <td style="text-align:left;"> kentucky </td>
    <td style="text-align:right;"> 0.0625 </td>
    <td style="text-align:right;"> 31.5 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> LA </td>
+   <td style="text-align:left;"> louisiana </td>
    <td style="text-align:right;"> 0.0520 </td>
    <td style="text-align:right;"> 31.5 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> MA </td>
+   <td style="text-align:left;"> massachusetts </td>
    <td style="text-align:right;"> 0.0540 </td>
    <td style="text-align:right;"> 35.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> MD </td>
+   <td style="text-align:left;"> maryland </td>
    <td style="text-align:right;"> 0.0580 </td>
    <td style="text-align:right;"> 29.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> ME </td>
+   <td style="text-align:left;"> maine </td>
    <td style="text-align:right;"> 0.0510 </td>
    <td style="text-align:right;"> 61.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> MI </td>
+   <td style="text-align:left;"> michigan </td>
    <td style="text-align:right;"> 0.0620 </td>
    <td style="text-align:right;"> 35.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> MN </td>
+   <td style="text-align:left;"> minnesota </td>
    <td style="text-align:right;"> 0.0560 </td>
    <td style="text-align:right;"> 44.5 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> MO </td>
+   <td style="text-align:left;"> missouri </td>
    <td style="text-align:right;"> 0.0520 </td>
    <td style="text-align:right;"> 24.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> MS </td>
+   <td style="text-align:left;"> mississippi </td>
    <td style="text-align:right;"> 0.0580 </td>
    <td style="text-align:right;"> 45.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> MT </td>
+   <td style="text-align:left;"> montana </td>
    <td style="text-align:right;"> 0.0550 </td>
    <td style="text-align:right;"> 40.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> NC </td>
+   <td style="text-align:left;"> north carolina </td>
    <td style="text-align:right;"> 0.0570 </td>
    <td style="text-align:right;"> 33.5 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> ND </td>
+   <td style="text-align:left;"> north dakota </td>
    <td style="text-align:right;"> 0.0500 </td>
    <td style="text-align:right;"> 32.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> NE </td>
+   <td style="text-align:left;"> nebraska </td>
    <td style="text-align:right;"> 0.0560 </td>
    <td style="text-align:right;"> 35.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> NH </td>
+   <td style="text-align:left;"> new hampshire </td>
    <td style="text-align:right;"> 0.0550 </td>
    <td style="text-align:right;"> 48.5 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> NJ </td>
+   <td style="text-align:left;"> new jersey </td>
    <td style="text-align:right;"> 0.0460 </td>
    <td style="text-align:right;"> 34.5 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> NM </td>
+   <td style="text-align:left;"> new mexico </td>
    <td style="text-align:right;"> 0.0620 </td>
    <td style="text-align:right;"> 51.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> NV </td>
+   <td style="text-align:left;"> nevada </td>
    <td style="text-align:right;"> 0.0600 </td>
    <td style="text-align:right;"> 41.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> NY </td>
+   <td style="text-align:left;"> new york </td>
    <td style="text-align:right;"> 0.0550 </td>
    <td style="text-align:right;"> 47.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> OH </td>
+   <td style="text-align:left;"> ohio </td>
    <td style="text-align:right;"> 0.0580 </td>
    <td style="text-align:right;"> 40.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> OK </td>
+   <td style="text-align:left;"> oklahoma </td>
    <td style="text-align:right;"> 0.0600 </td>
    <td style="text-align:right;"> 35.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> OR </td>
+   <td style="text-align:left;"> oregon </td>
    <td style="text-align:right;"> 0.0560 </td>
    <td style="text-align:right;"> 40.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> PA </td>
+   <td style="text-align:left;"> pennsylvania </td>
    <td style="text-align:right;"> 0.0570 </td>
    <td style="text-align:right;"> 30.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> RI </td>
+   <td style="text-align:left;"> rhode island </td>
    <td style="text-align:right;"> 0.0550 </td>
    <td style="text-align:right;"> 24.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> SC </td>
+   <td style="text-align:left;"> south carolina </td>
    <td style="text-align:right;"> 0.0550 </td>
    <td style="text-align:right;"> 30.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> SD </td>
+   <td style="text-align:left;"> south dakota </td>
    <td style="text-align:right;"> 0.0600 </td>
    <td style="text-align:right;"> NA </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> TN </td>
+   <td style="text-align:left;"> tennessee </td>
    <td style="text-align:right;"> 0.0570 </td>
    <td style="text-align:right;"> 37.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> TX </td>
+   <td style="text-align:left;"> texas </td>
    <td style="text-align:right;"> 0.0550 </td>
    <td style="text-align:right;"> 33.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> UT </td>
+   <td style="text-align:left;"> utah </td>
    <td style="text-align:right;"> 0.0400 </td>
    <td style="text-align:right;"> 34.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> VA </td>
+   <td style="text-align:left;"> virginia </td>
    <td style="text-align:right;"> 0.0565 </td>
    <td style="text-align:right;"> 42.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> VT </td>
+   <td style="text-align:left;"> vermont </td>
    <td style="text-align:right;"> 0.0550 </td>
    <td style="text-align:right;"> 30.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> WA </td>
+   <td style="text-align:left;"> washington </td>
    <td style="text-align:right;"> 0.0555 </td>
    <td style="text-align:right;"> 38.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> WI </td>
+   <td style="text-align:left;"> wisconsin </td>
    <td style="text-align:right;"> 0.0520 </td>
    <td style="text-align:right;"> 19.0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> WV </td>
+   <td style="text-align:left;"> west virginia </td>
    <td style="text-align:right;"> 0.0620 </td>
    <td style="text-align:right;"> 57.5 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> WY </td>
+   <td style="text-align:left;"> wyoming </td>
    <td style="text-align:right;"> 0.0500 </td>
    <td style="text-align:right;"> 21.0 </td>
   </tr>
