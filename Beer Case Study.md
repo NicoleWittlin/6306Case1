@@ -268,7 +268,7 @@ Number of NAs:
 </table>
 
 
-Median Alcohol Content and IBU:
+Median Alcohol Content:
 ========================================================
 
 ![plot of chunk unnamed-chunk-7](Beer Case Study-figure/unnamed-chunk-7-1.png)<table class="table table-striped" style="font-size: 14px; width: auto !important; margin-left: auto; margin-right: auto;">
@@ -538,6 +538,17 @@ Median Alcohol Content and IBU:
 </tbody>
 </table>
 
+
+Median IBU:
+========================================================
+
+```r
+ggplot(data = na.omit(ibu_medianm), aes(map_id = State)) + geom_map(aes(fill=value), map=map_data) +  theme(legend.text=element_text(size=24)) + theme(axis.text = element_text(size = 18), axis.title = element_text(size = rel(1.75))) + theme(legend.key.size = unit(1, "in")) + expand_limits(x=map_data$long, y=map_data$lat) 
+```
+
+![plot of chunk unnamed-chunk-8](Beer Case Study-figure/unnamed-chunk-8-1.png)
+
+
 Summary Stats for ABV
 ========================================================
 
@@ -556,4 +567,4 @@ summary_ABV
 Scatter Plot
 ========================================================
 
-![plot of chunk unnamed-chunk-9](Beer Case Study-figure/unnamed-chunk-9-1.png)![plot of chunk unnamed-chunk-9](Beer Case Study-figure/unnamed-chunk-9-2.png)
+![plot of chunk unnamed-chunk-10](Beer Case Study-figure/unnamed-chunk-10-1.png)![plot of chunk unnamed-chunk-10](Beer Case Study-figure/unnamed-chunk-10-2.png)
