@@ -27,6 +27,20 @@ Beer and Brewery data was provided by two csv files.  The brewery data lists the
 Beers <- read.csv("Beers.csv", encoding='UTF-8')
 Brews <- read.csv("Breweries.csv", encoding='UTF-8', sep=",")
 
+duplicate_Brews <- sqldf("select a.Brew_ID, b.Brew_ID, a.Name, B.Name, a.City, b.City, a.State, b.State
+                         from Brews a join Brews b on a.Name = b.Name and a.Brew_ID <> b.Brew_ID")
+
+duplicate_Brews$Name <- as.character(duplicate_Brews$Name)
+duplicate_Brews$City <- as.character(duplicate_Brews$City)
+duplicate_Brews$State <- as.character(duplicate_Brews$State)
+
+levenshtein_feed <- sqldf("select a.Brew_ID, b.Brew_ID,  a.Name||a.City||a.State  as 'String1', b.Name||b.City||b.State as 'String2'
+                          from Brews a join Brews b on a.Name = b.Name and a.Brew_ID <> b.Brew_ID")
+
+levenshtein_feed$LDistance <- stringdist(levenshtein_feed$String1, levenshtein_feed$String2)
+
+
+
 ```
 How many breweries per state:
 ========================================================
