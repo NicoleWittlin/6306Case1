@@ -297,4 +297,4 @@ summary_ABV
 Scatter Plot
 ========================================================
 
-![plot of chunk unnamed-chunk-10](Beer Case Study-figure/unnamed-chunk-10-1.png)![plot of chunk unnamed-chunk-10](Beer Case Study-figure/unnamed-chunk-10-2.png)
+![plot of chunk unnamed-chunk-10](Beer Case Study-figure/unnamed-chunk-10-1.png)
