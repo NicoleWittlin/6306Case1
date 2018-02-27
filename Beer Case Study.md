@@ -24,19 +24,304 @@ Beer and Brewery data was provided by two csv files.  The brewery data lists the
 ```r
 #setwd("C:/Users/Marin Family/Desktop/Doing Data Science/Case Study1 Git")
 
+library(sqldf)
+library(magrittr)
+library(kableExtra)
+library(ggplot2)
+library(maps)
+library(stringdist)
+
 #Read the data
 Beers <- read.csv("Beers.csv", encoding='UTF-8')
 Brews <- read.csv("Breweries.csv", encoding='UTF-8', sep=",")
 ```
+
+
+Duplicate Data
+========================================================
+
+<table class="table table-striped" style="font-size: 14px; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:right;"> Brew_ID </th>
+   <th style="text-align:right;"> Brew_ID </th>
+   <th style="text-align:left;"> Name </th>
+   <th style="text-align:left;"> Name </th>
+   <th style="text-align:left;"> City </th>
+   <th style="text-align:left;"> City </th>
+   <th style="text-align:left;"> State </th>
+   <th style="text-align:left;"> State </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 96 </td>
+   <td style="text-align:left;"> Blackrocks Brewery </td>
+   <td style="text-align:left;"> Blackrocks Brewery </td>
+   <td style="text-align:left;"> Marquette </td>
+   <td style="text-align:left;"> Marquette </td>
+   <td style="text-align:left;"> MI </td>
+   <td style="text-align:left;"> MA </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 139 </td>
+   <td style="text-align:left;"> Summit Brewing Company </td>
+   <td style="text-align:left;"> Summit Brewing Company </td>
+   <td style="text-align:left;"> St. Paul </td>
+   <td style="text-align:left;"> St Paul </td>
+   <td style="text-align:left;"> MN </td>
+   <td style="text-align:left;"> MN </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 96 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:left;"> Blackrocks Brewery </td>
+   <td style="text-align:left;"> Blackrocks Brewery </td>
+   <td style="text-align:left;"> Marquette </td>
+   <td style="text-align:left;"> Marquette </td>
+   <td style="text-align:left;"> MA </td>
+   <td style="text-align:left;"> MI </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 139 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:left;"> Summit Brewing Company </td>
+   <td style="text-align:left;"> Summit Brewing Company </td>
+   <td style="text-align:left;"> St Paul </td>
+   <td style="text-align:left;"> St. Paul </td>
+   <td style="text-align:left;"> MN </td>
+   <td style="text-align:left;"> MN </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 164 </td>
+   <td style="text-align:right;"> 372 </td>
+   <td style="text-align:left;"> Sly Fox Brewing Company </td>
+   <td style="text-align:left;"> Sly Fox Brewing Company </td>
+   <td style="text-align:left;"> Phoenixville </td>
+   <td style="text-align:left;"> Pottstown </td>
+   <td style="text-align:left;"> PA </td>
+   <td style="text-align:left;"> PA </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 167 </td>
+   <td style="text-align:right;"> 504 </td>
+   <td style="text-align:left;"> Oskar Blues Brewery </td>
+   <td style="text-align:left;"> Oskar Blues Brewery </td>
+   <td style="text-align:left;"> Longmont </td>
+   <td style="text-align:left;"> Lyons </td>
+   <td style="text-align:left;"> CO </td>
+   <td style="text-align:left;"> CO </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 262 </td>
+   <td style="text-align:right;"> 276 </td>
+   <td style="text-align:left;"> Otter Creek Brewing </td>
+   <td style="text-align:left;"> Otter Creek Brewing </td>
+   <td style="text-align:left;"> Waterbury </td>
+   <td style="text-align:left;"> Middlebury </td>
+   <td style="text-align:left;"> VT </td>
+   <td style="text-align:left;"> VT </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 276 </td>
+   <td style="text-align:right;"> 262 </td>
+   <td style="text-align:left;"> Otter Creek Brewing </td>
+   <td style="text-align:left;"> Otter Creek Brewing </td>
+   <td style="text-align:left;"> Middlebury </td>
+   <td style="text-align:left;"> Waterbury </td>
+   <td style="text-align:left;"> VT </td>
+   <td style="text-align:left;"> VT </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 372 </td>
+   <td style="text-align:right;"> 164 </td>
+   <td style="text-align:left;"> Sly Fox Brewing Company </td>
+   <td style="text-align:left;"> Sly Fox Brewing Company </td>
+   <td style="text-align:left;"> Pottstown </td>
+   <td style="text-align:left;"> Phoenixville </td>
+   <td style="text-align:left;"> PA </td>
+   <td style="text-align:left;"> PA </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 378 </td>
+   <td style="text-align:right;"> 457 </td>
+   <td style="text-align:left;"> Lucette Brewing Company </td>
+   <td style="text-align:left;"> Lucette Brewing Company </td>
+   <td style="text-align:left;"> Menominee </td>
+   <td style="text-align:left;"> Menominie </td>
+   <td style="text-align:left;"> WI </td>
+   <td style="text-align:left;"> WI </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 383 </td>
+   <td style="text-align:right;"> 415 </td>
+   <td style="text-align:left;"> Blue Mountain Brewery </td>
+   <td style="text-align:left;"> Blue Mountain Brewery </td>
+   <td style="text-align:left;"> Afton </td>
+   <td style="text-align:left;"> Arrington </td>
+   <td style="text-align:left;"> VA </td>
+   <td style="text-align:left;"> VA </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 415 </td>
+   <td style="text-align:right;"> 383 </td>
+   <td style="text-align:left;"> Blue Mountain Brewery </td>
+   <td style="text-align:left;"> Blue Mountain Brewery </td>
+   <td style="text-align:left;"> Arrington </td>
+   <td style="text-align:left;"> Afton </td>
+   <td style="text-align:left;"> VA </td>
+   <td style="text-align:left;"> VA </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 457 </td>
+   <td style="text-align:right;"> 378 </td>
+   <td style="text-align:left;"> Lucette Brewing Company </td>
+   <td style="text-align:left;"> Lucette Brewing Company </td>
+   <td style="text-align:left;"> Menominie </td>
+   <td style="text-align:left;"> Menominee </td>
+   <td style="text-align:left;"> WI </td>
+   <td style="text-align:left;"> WI </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 504 </td>
+   <td style="text-align:right;"> 167 </td>
+   <td style="text-align:left;"> Oskar Blues Brewery </td>
+   <td style="text-align:left;"> Oskar Blues Brewery </td>
+   <td style="text-align:left;"> Lyons </td>
+   <td style="text-align:left;"> Longmont </td>
+   <td style="text-align:left;"> CO </td>
+   <td style="text-align:left;"> CO </td>
+  </tr>
+</tbody>
+</table>
+
+Duplicate Data Solution
+========================================================
+
+
+<table class="table table-striped" style="font-size: 14px; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:right;"> Brew_ID </th>
+   <th style="text-align:right;"> Brew_ID </th>
+   <th style="text-align:left;"> String1 </th>
+   <th style="text-align:left;"> String2 </th>
+   <th style="text-align:right;"> LDistance </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 96 </td>
+   <td style="text-align:left;"> Blackrocks BreweryMarquette MI </td>
+   <td style="text-align:left;"> Blackrocks BreweryMarquette MA </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:right;"> 139 </td>
+   <td style="text-align:left;"> Summit Brewing CompanySt. Paul MN </td>
+   <td style="text-align:left;"> Summit Brewing CompanySt Paul MN </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 96 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:left;"> Blackrocks BreweryMarquette MA </td>
+   <td style="text-align:left;"> Blackrocks BreweryMarquette MI </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 139 </td>
+   <td style="text-align:right;"> 59 </td>
+   <td style="text-align:left;"> Summit Brewing CompanySt Paul MN </td>
+   <td style="text-align:left;"> Summit Brewing CompanySt. Paul MN </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 164 </td>
+   <td style="text-align:right;"> 372 </td>
+   <td style="text-align:left;"> Sly Fox Brewing CompanyPhoenixville PA </td>
+   <td style="text-align:left;"> Sly Fox Brewing CompanyPottstown PA </td>
+   <td style="text-align:right;"> 10 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 167 </td>
+   <td style="text-align:right;"> 504 </td>
+   <td style="text-align:left;"> Oskar Blues BreweryLongmont CO </td>
+   <td style="text-align:left;"> Oskar Blues BreweryLyons CO </td>
+   <td style="text-align:right;"> 5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 262 </td>
+   <td style="text-align:right;"> 276 </td>
+   <td style="text-align:left;"> Otter Creek BrewingWaterbury VT </td>
+   <td style="text-align:left;"> Otter Creek BrewingMiddlebury VT </td>
+   <td style="text-align:right;"> 6 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 276 </td>
+   <td style="text-align:right;"> 262 </td>
+   <td style="text-align:left;"> Otter Creek BrewingMiddlebury VT </td>
+   <td style="text-align:left;"> Otter Creek BrewingWaterbury VT </td>
+   <td style="text-align:right;"> 6 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 372 </td>
+   <td style="text-align:right;"> 164 </td>
+   <td style="text-align:left;"> Sly Fox Brewing CompanyPottstown PA </td>
+   <td style="text-align:left;"> Sly Fox Brewing CompanyPhoenixville PA </td>
+   <td style="text-align:right;"> 10 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 378 </td>
+   <td style="text-align:right;"> 457 </td>
+   <td style="text-align:left;"> Lucette Brewing CompanyMenominee WI </td>
+   <td style="text-align:left;"> Lucette Brewing CompanyMenominie WI </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 383 </td>
+   <td style="text-align:right;"> 415 </td>
+   <td style="text-align:left;"> Blue Mountain BreweryAfton VA </td>
+   <td style="text-align:left;"> Blue Mountain BreweryArrington VA </td>
+   <td style="text-align:right;"> 5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 415 </td>
+   <td style="text-align:right;"> 383 </td>
+   <td style="text-align:left;"> Blue Mountain BreweryArrington VA </td>
+   <td style="text-align:left;"> Blue Mountain BreweryAfton VA </td>
+   <td style="text-align:right;"> 5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 457 </td>
+   <td style="text-align:right;"> 378 </td>
+   <td style="text-align:left;"> Lucette Brewing CompanyMenominie WI </td>
+   <td style="text-align:left;"> Lucette Brewing CompanyMenominee WI </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 504 </td>
+   <td style="text-align:right;"> 167 </td>
+   <td style="text-align:left;"> Oskar Blues BreweryLyons CO </td>
+   <td style="text-align:left;"> Oskar Blues BreweryLongmont CO </td>
+   <td style="text-align:right;"> 5 </td>
+  </tr>
+</tbody>
+</table>
+
 How many breweries per state:
 ========================================================
 
-![plot of chunk unnamed-chunk-2](Beer Case Study-figure/unnamed-chunk-2-1.png)
+![plot of chunk unnamed-chunk-4](Beer Case Study-figure/unnamed-chunk-4-1.png)
 
 How many breweries per state (using ggplot):
 ========================================================
 
-<img src="Beer Case Study-figure/unnamed-chunk-3-1.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" style="display: block; margin: auto;" />
+<img src="Beer Case Study-figure/unnamed-chunk-5-1.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
 
 First 6 Observations:
 ========================================================
@@ -271,12 +556,12 @@ Number of NAs:
 Median Alcohol Content:
 ========================================================
 
-<img src="Beer Case Study-figure/unnamed-chunk-7-1.png" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" style="display: block; margin: auto;" />
+<img src="Beer Case Study-figure/unnamed-chunk-9-1.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" style="display: block; margin: auto;" />
 
 
 Median IBU:
 ========================================================
-<img src="Beer Case Study-figure/unnamed-chunk-8-1.png" title="plot of chunk unnamed-chunk-8" alt="plot of chunk unnamed-chunk-8" style="display: block; margin: auto;" />
+<img src="Beer Case Study-figure/unnamed-chunk-10-1.png" title="plot of chunk unnamed-chunk-10" alt="plot of chunk unnamed-chunk-10" style="display: block; margin: auto;" />
 
 
 Summary Stats for ABV
@@ -297,4 +582,4 @@ summary_ABV
 Scatter Plot
 ========================================================
 
-![plot of chunk unnamed-chunk-10](Beer Case Study-figure/unnamed-chunk-10-1.png)
+![plot of chunk unnamed-chunk-12](Beer Case Study-figure/unnamed-chunk-12-1.png)

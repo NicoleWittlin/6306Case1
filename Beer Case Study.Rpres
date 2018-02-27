@@ -23,9 +23,27 @@ Beer and Brewery data was provided by two csv files.  The brewery data lists the
 ```{r echo = TRUE}
 #setwd("C:/Users/Marin Family/Desktop/Doing Data Science/Case Study1 Git")
 
+library(sqldf)
+library(magrittr)
+library(kableExtra)
+library(ggplot2)
+library(maps)
+library(stringdist)
+
 #Read the data
 Beers <- read.csv("Beers.csv", encoding='UTF-8')
 Brews <- read.csv("Breweries.csv", encoding='UTF-8', sep=",")
+
+
+
+```
+
+
+Duplicate Data
+========================================================
+
+```{r echo = FALSE, include = TRUE}
+
 
 duplicate_Brews <- sqldf("select a.Brew_ID, b.Brew_ID, a.Name, B.Name, a.City, b.City, a.State, b.State
                          from Brews a join Brews b on a.Name = b.Name and a.Brew_ID <> b.Brew_ID")
@@ -34,14 +52,31 @@ duplicate_Brews$Name <- as.character(duplicate_Brews$Name)
 duplicate_Brews$City <- as.character(duplicate_Brews$City)
 duplicate_Brews$State <- as.character(duplicate_Brews$State)
 
+
 levenshtein_feed <- sqldf("select a.Brew_ID, b.Brew_ID,  a.Name||a.City||a.State  as 'String1', b.Name||b.City||b.State as 'String2'
                           from Brews a join Brews b on a.Name = b.Name and a.Brew_ID <> b.Brew_ID")
 
 levenshtein_feed$LDistance <- stringdist(levenshtein_feed$String1, levenshtein_feed$String2)
 
+kable((duplicate_Brews), "html") %>% kable_styling(bootstrap_options="striped", full_width = F, font_size = 14)
 
 
 ```
+
+Duplicate Data Solution
+========================================================
+
+
+```{r echo = FALSE, include = TRUE}
+
+kable((levenshtein_feed), "html") %>% kable_styling(bootstrap_options="striped", full_width = F, font_size = 14)
+
+#Brews1 <- sqldf("update Brews set Brew_ID = a.Brew_ID from Brews a join levenshtein_feed b on a.Brew_ID = b.Brew_ID
+#               and LDistance = '1'")
+
+
+```
+
 How many breweries per state:
 ========================================================
 
@@ -74,8 +109,7 @@ colnames(State_Brews) <- c("State","NumberofBreweries")
 
 State_Brews <- State_Brews[order(-State_Brews$NumberofBreweries,decreasing = TRUE),]
 
-library(ggplot2)
-library(maps)
+
 trim <- function (x) gsub("^\\s+|\\s+$", "", x)
 State_Brews$State <- trim(State_Brews$State) #trim leading and trailing spaces from State
 
@@ -120,9 +154,7 @@ ggplot(State_Brewsm, aes(map_id = State)) + geom_map(aes(fill=value), map=map_da
 First 6 Observations:
 ========================================================
 ```{r echo = FALSE, include = TRUE, fig.width = 20}
-library(sqldf)
-library(magrittr)
-library(kableExtra)
+
 
 Beer_Data <- sqldf("select a.Brew_ID, a.Name as 'BrewName', a.City, a.State, b.Name as 'BeerName', b.ABV, b.IBU, b.Style, b.Ounces from Brews a join Beers b on a.Brew_ID = b.Brewery_id")
 
