@@ -19,8 +19,8 @@ Introduction: Client
 
 ![2.0](./untappd.jpg)
 
-Introduction: Business Challenge
-========================================================
+***
+
 Business Challenge: Two New Business Units
 - Community Engagement
 - Beer Tourism
@@ -55,7 +55,7 @@ Brews <- read.csv("Breweries.csv", encoding='UTF-8', sep=",")
 
 Duplicate Data Analysis
 ========================================================
-<table class="table table-striped" style="font-size: 14px; width: auto !important; margin-left: auto; margin-right: auto;">
+<table class="table table-striped" style="font-size: 12px; width: auto !important; margin-left: auto; margin-right: auto;">
  <thead>
   <tr>
    <th style="text-align:right;"> Brew_ID </th>
@@ -216,7 +216,7 @@ Duplicate Data Analysis
 Duplicate Data Resolution
 ========================================================
 
-<table class="table table-striped" style="font-size: 14px; width: auto !important; margin-left: auto; margin-right: auto;">
+<table class="table table-striped" style="font-size: 12px; width: auto !important; margin-left: auto; margin-right: auto;">
  <thead>
   <tr>
    <th style="text-align:right;"> Brew_ID </th>

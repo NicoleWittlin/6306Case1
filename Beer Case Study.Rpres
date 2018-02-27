@@ -19,8 +19,8 @@ Introduction: Client
 
 ![2.0](./untappd.jpg)
 
-Introduction: Business Challenge
-========================================================
+***
+
 Business Challenge: Two New Business Units
 - Community Engagement
 - Beer Tourism
@@ -71,7 +71,7 @@ levenshtein_feed <- sqldf("select a.Brew_ID, b.Brew_ID,  a.Name||a.City||a.State
 
 levenshtein_feed$LDistance <- stringdist(levenshtein_feed$String1, levenshtein_feed$String2)
 
-kable((duplicate_Brews), "html") %>% kable_styling(bootstrap_options="striped", full_width = F, font_size = 14)
+kable((duplicate_Brews), "html") %>% kable_styling(bootstrap_options="striped", full_width = F, font_size = 12)
 
 
 ```
@@ -82,7 +82,7 @@ Duplicate Data Resolution
 
 ```{r echo = FALSE, include = TRUE}
 
-kable((levenshtein_feed), "html") %>% kable_styling(bootstrap_options="striped", full_width = F, font_size = 14)
+kable((levenshtein_feed), "html") %>% kable_styling(bootstrap_options="striped", full_width = F, font_size = 12)
 
 
 Brews <- read.csv("Breweries.csv", encoding='UTF-8', sep=",")
