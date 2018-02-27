@@ -61,6 +61,7 @@ levenshtein_feed$LDistance <- stringdist(levenshtein_feed$String1, levenshtein_f
 kable((duplicate_Brews), "html") %>% kable_styling(bootstrap_options="striped", full_width = F, font_size = 14)
 
 
+
 ```
 
 Duplicate Data Solution
@@ -71,8 +72,20 @@ Duplicate Data Solution
 
 kable((levenshtein_feed), "html") %>% kable_styling(bootstrap_options="striped", full_width = F, font_size = 14)
 
-#Brews1 <- sqldf("update Brews set Brew_ID = a.Brew_ID from Brews a join levenshtein_feed b on a.Brew_ID = b.Brew_ID
-#               and LDistance = '1'")
+
+Brews <- read.csv("Breweries.csv", encoding='UTF-8', sep=",")
+
+Brews$Brew_ID <- as.character(Brews$Brew_ID)
+
+#Remove the duplicate breweries 
+Brews <- sqldf(c("delete from Brews where Brew_ID = '96'", "select * from main.Brews"))
+Brews <- sqldf(c("delete from Brews where Brew_ID = '59'", "select * from main.Brews"))
+Brews <- sqldf(c("delete from Brews where Brew_ID = '378'", "select * from main.Brews"))
+
+#Update the Beer brew id dups
+Beers <- sqldf(c("update Beers set Brewery_id = '13' where Brewery_id = '96'", "select * from main.Beers"))
+Beers <- sqldf(c("update Beers set Brewery_id = '139' where Brewery_id = '59'", "select * from main.Beers"))
+Beers <- sqldf(c("update Beers set Brewery_id = '457' where Brewery_id = '378'", "select * from main.Beers"))
 
 
 ```

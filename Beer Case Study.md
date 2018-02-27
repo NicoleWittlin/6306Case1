@@ -328,7 +328,7 @@ First 6 Observations:
 <table class="table table-striped" style="font-size: 14px; width: auto !important; margin-left: auto; margin-right: auto;">
  <thead>
   <tr>
-   <th style="text-align:right;"> Brew_ID </th>
+   <th style="text-align:left;"> Brew_ID </th>
    <th style="text-align:left;"> BrewName </th>
    <th style="text-align:left;"> City </th>
    <th style="text-align:left;"> State </th>
@@ -341,7 +341,7 @@ First 6 Observations:
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 1 </td>
    <td style="text-align:left;"> NorthGate Brewing </td>
    <td style="text-align:left;"> Minneapolis </td>
    <td style="text-align:left;"> MN </td>
@@ -352,7 +352,7 @@ First 6 Observations:
    <td style="text-align:right;"> 16 </td>
   </tr>
   <tr>
-   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 1 </td>
    <td style="text-align:left;"> NorthGate Brewing </td>
    <td style="text-align:left;"> Minneapolis </td>
    <td style="text-align:left;"> MN </td>
@@ -363,7 +363,7 @@ First 6 Observations:
    <td style="text-align:right;"> 16 </td>
   </tr>
   <tr>
-   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 1 </td>
    <td style="text-align:left;"> NorthGate Brewing </td>
    <td style="text-align:left;"> Minneapolis </td>
    <td style="text-align:left;"> MN </td>
@@ -374,7 +374,7 @@ First 6 Observations:
    <td style="text-align:right;"> 16 </td>
   </tr>
   <tr>
-   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 1 </td>
    <td style="text-align:left;"> NorthGate Brewing </td>
    <td style="text-align:left;"> Minneapolis </td>
    <td style="text-align:left;"> MN </td>
@@ -385,7 +385,7 @@ First 6 Observations:
    <td style="text-align:right;"> 16 </td>
   </tr>
   <tr>
-   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 1 </td>
    <td style="text-align:left;"> NorthGate Brewing </td>
    <td style="text-align:left;"> Minneapolis </td>
    <td style="text-align:left;"> MN </td>
@@ -396,7 +396,7 @@ First 6 Observations:
    <td style="text-align:right;"> 16 </td>
   </tr>
   <tr>
-   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> 1 </td>
    <td style="text-align:left;"> NorthGate Brewing </td>
    <td style="text-align:left;"> Minneapolis </td>
    <td style="text-align:left;"> MN </td>
@@ -415,7 +415,7 @@ Last 6 Observations:
  <thead>
   <tr>
    <th style="text-align:left;">   </th>
-   <th style="text-align:right;"> Brew_ID </th>
+   <th style="text-align:left;"> Brew_ID </th>
    <th style="text-align:left;"> BrewName </th>
    <th style="text-align:left;"> City </th>
    <th style="text-align:left;"> State </th>
@@ -429,7 +429,7 @@ Last 6 Observations:
 <tbody>
   <tr>
    <td style="text-align:left;"> 2405 </td>
-   <td style="text-align:right;"> 556 </td>
+   <td style="text-align:left;"> 556 </td>
    <td style="text-align:left;"> Ukiah Brewing Company </td>
    <td style="text-align:left;"> Ukiah </td>
    <td style="text-align:left;"> CA </td>
@@ -441,7 +441,7 @@ Last 6 Observations:
   </tr>
   <tr>
    <td style="text-align:left;"> 2406 </td>
-   <td style="text-align:right;"> 557 </td>
+   <td style="text-align:left;"> 557 </td>
    <td style="text-align:left;"> Butternuts Beer and Ale </td>
    <td style="text-align:left;"> Garrattsville </td>
    <td style="text-align:left;"> NY </td>
@@ -453,7 +453,7 @@ Last 6 Observations:
   </tr>
   <tr>
    <td style="text-align:left;"> 2407 </td>
-   <td style="text-align:right;"> 557 </td>
+   <td style="text-align:left;"> 557 </td>
    <td style="text-align:left;"> Butternuts Beer and Ale </td>
    <td style="text-align:left;"> Garrattsville </td>
    <td style="text-align:left;"> NY </td>
@@ -465,7 +465,7 @@ Last 6 Observations:
   </tr>
   <tr>
    <td style="text-align:left;"> 2408 </td>
-   <td style="text-align:right;"> 557 </td>
+   <td style="text-align:left;"> 557 </td>
    <td style="text-align:left;"> Butternuts Beer and Ale </td>
    <td style="text-align:left;"> Garrattsville </td>
    <td style="text-align:left;"> NY </td>
@@ -477,7 +477,7 @@ Last 6 Observations:
   </tr>
   <tr>
    <td style="text-align:left;"> 2409 </td>
-   <td style="text-align:right;"> 557 </td>
+   <td style="text-align:left;"> 557 </td>
    <td style="text-align:left;"> Butternuts Beer and Ale </td>
    <td style="text-align:left;"> Garrattsville </td>
    <td style="text-align:left;"> NY </td>
@@ -489,7 +489,7 @@ Last 6 Observations:
   </tr>
   <tr>
    <td style="text-align:left;"> 2410 </td>
-   <td style="text-align:right;"> 558 </td>
+   <td style="text-align:left;"> 558 </td>
    <td style="text-align:left;"> Sleeping Lady Brewing Company </td>
    <td style="text-align:left;"> Anchorage </td>
    <td style="text-align:left;"> AK </td>
