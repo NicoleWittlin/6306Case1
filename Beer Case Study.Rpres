@@ -1,24 +1,32 @@
-Beer Case Study
 ========================================================
-author: Cho Kim, Nicole Wittlin, and Jonathan Marin
-date: 2/20/2018
+title: Untappd 2.0
+author: Cho Kim, Jonathan Marin, and Nicole Wittlin
+date: 2/28/2018
 autosize: true
+![2.0](./untappd.jpg)
+
 
 Introduction
 ========================================================
-We will be examining beer data and wish to conduct an exploratory analysis to answer the following questions:
-- How many Breweries are present in each state?
-- Print the top and bottom 6 brew and beer data. 
-- Report the Number of NA's in each column of the dataset
-- Compute the median alcohol content and ibu for each state.
-- Which state has the max ABV Beer? Which state has the most bitter (IBU) beer?
-- Summary stats for the ABV variable
-- And finally find if there is a relationship between bitterness and alcoholic content. 
 
-Data
+Client: Uptappd
+
+Business Challenge: Two New Business Units
+- Community Engagement
+- Beer Tourism
+
+
+Data Overview
 ========================================================
+- Origin of Data Sets
+- Beer Data: 2410 observations, 7 variables, including Name, Style, Alcohol By Volume (ABV), International Bittering Units scale (IBU), and serving size (in oz)
+- Brewery Data: 558 observations, 4 variables, including Name, City, and State
+- Exploratory Analysis:
+  - Missing Information
+  - Duplicate Data
 
-Beer and Brewery data was provided by two csv files.  The brewery data lists the brewerys by state and the beer data contains the beers that breweries have to offer with that corresponding beer data. 
+Data Overview
+=========================================================
 
 ```{r echo = TRUE}
 #setwd("C:/Users/Marin Family/Desktop/Doing Data Science/Case Study1 Git")
@@ -34,12 +42,9 @@ library(stringdist)
 Beers <- read.csv("Beers.csv", encoding='UTF-8')
 Brews <- read.csv("Breweries.csv", encoding='UTF-8', sep=",")
 
-
-
 ```
 
-
-Duplicate Data
+Duplicate Data Analysis
 ========================================================
 
 ```{r echo = FALSE, include = TRUE}
@@ -61,12 +66,11 @@ levenshtein_feed$LDistance <- stringdist(levenshtein_feed$String1, levenshtein_f
 kable((duplicate_Brews), "html") %>% kable_styling(bootstrap_options="striped", full_width = F, font_size = 14)
 
 
-
 ```
 
-Duplicate Data Solution
-========================================================
 
+Duplicate Data Resolution
+========================================================
 
 ```{r echo = FALSE, include = TRUE}
 
@@ -90,9 +94,62 @@ Beers <- sqldf(c("update Beers set Brewery_id = '457' where Brewery_id = '378'",
 
 ```
 
-How many breweries per state:
+Data Snapshot
 ========================================================
+```{r echo = FALSE, include = TRUE, fig.width = 20}
 
+
+Beer_Data <- sqldf("select a.Brew_ID, a.Name as 'BrewName', a.City, a.State, b.Name as 'BeerName', b.ABV, b.IBU, b.Style, b.Ounces from Brews a join Beers b on a.Brew_ID = b.Brewery_id")
+
+kable(head(Beer_Data), "html") %>% kable_styling(bootstrap_options="striped", full_width = F, font_size = 14)
+
+```
+
+```{r echo = FALSE, include = TRUE, fig.width = 20}
+
+
+kable(tail(Beer_Data), "html") %>% kable_styling(bootstrap_options="striped", full_width = F, font_size = 14)
+
+```
+
+### MOVE THIS EARLIER
+Number of NAs:
+========================================================
+```{r echo = FALSE, include = TRUE}
+
+Brew_ID_NA <-sum(is.na(Beer_Data$Brew_ID))
+BrewName_NA<-sum(is.na(Beer_Data$BrewName))
+City_NA <- sum(is.na(Beer_Data$City))
+State_NA <- sum(is.na(Beer_Data$State))
+BeerName_NA <- sum(is.na(Beer_Data$BeerName))
+ABV_NA <- sum(is.na(Beer_Data$ABV))
+IBU_NA <- sum(is.na(Beer_Data$IBU))
+Style_NA <- sum(is.na(Beer_Data$Style))
+Ounces_NA <- sum(is.na(Beer_Data$Ounces))
+
+na_columns <- data.frame(matrix(ncol =2, nrow=0))
+
+colnames(na_columns) <- c("ColumnName", "NumberOfNAs")
+
+na_columns[nrow(na_columns) +1,] = c("Brew_ID", Brew_ID_NA)
+na_columns[nrow(na_columns) +1,] = c("BrewName", BrewName_NA)
+na_columns[nrow(na_columns) +1,] = c("City", City_NA)
+na_columns[nrow(na_columns) +1,] = c("State", State_NA)
+na_columns[nrow(na_columns) +1,] = c("BeerName", BeerName_NA)
+na_columns[nrow(na_columns) +1,] = c("ABV", ABV_NA)
+na_columns[nrow(na_columns) +1,] = c("IBU", IBU_NA)
+na_columns[nrow(na_columns) +1,] = c("Style", Style_NA)
+na_columns[nrow(na_columns) +1,] = c("Ounces", Ounces_NA)
+
+
+kable((na_columns), "html") %>% kable_styling(bootstrap_options="striped", full_width = F, font_size = 14)
+
+````
+
+
+Summary of Findings
+========================================================
+Breweries per State
 ```{r, echo=FALSE, include = TRUE, fig.width = 16, fig.height =12}
 
 State_Brews <-  aggregate(Brew_ID ~ State , Brews, length)
@@ -111,9 +168,10 @@ barplot(State_Brews$NumberofBreweries, names.arg = State_Brews$State, col = "Red
 
 ```
 
-How many breweries per state (using ggplot):
-========================================================
 
+Summary of Findings
+========================================================
+Breweries per State
 ```{r, echo=FALSE, include = TRUE, fig.width = 35, fig.height =20, fig.align = 'center'}
 
 State_Brews <-  aggregate(Brew_ID ~ State , Brews, length)
@@ -164,6 +222,7 @@ ggplot(State_Brewsm, aes(map_id = State)) + geom_map(aes(fill=value), map=map_da
 
 ```
 
+### MOVE THIS EARLIER
 First 6 Observations:
 ========================================================
 ```{r echo = FALSE, include = TRUE, fig.width = 20}
@@ -186,7 +245,7 @@ kable(tail(Beer_Data), "html") %>% kable_styling(bootstrap_options="striped", fu
 
 ```
 
-
+### MOVE THIS EARLIER
 Number of NAs:
 ========================================================
 ```{r echo = FALSE, include = TRUE}
@@ -221,9 +280,9 @@ kable((na_columns), "html") %>% kable_styling(bootstrap_options="striped", full_
 ````
 
 
-Median Alcohol Content:
+Summary of Findings
 ========================================================
-
+Median Alcohol Content by State
 ```{r, echo=FALSE, include = TRUE, fig.width = 35, fig.height =20, fig.align = 'center'}
 
 
@@ -250,8 +309,9 @@ ggplot(data = na.omit(abv_medianm), aes(map_id = State)) + geom_map(aes(fill=val
 ```
 
 
-Median IBU:
+Summary of Findings
 ========================================================
+Median IBU by State
 ```{r, echo=FALSE, include = TRUE, fig.width = 35, fig.height =20, fig.align = 'center'}
 ggplot(data = na.omit(ibu_medianm), aes(map_id = State)) + geom_map(aes(fill=value), map=map_data) +  theme(legend.text=element_text(size=24)) + theme(axis.text = element_text(size = 18), axis.title = element_text(size = rel(1.75))) + theme(legend.key.size = unit(3, "in")) + expand_limits(x=map_data$long, y=map_data$lat) 
 
@@ -259,9 +319,9 @@ ggplot(data = na.omit(ibu_medianm), aes(map_id = State)) + geom_map(aes(fill=val
 ```
 
 
-Summary Stats for ABV
+Summary of Findings
 ========================================================
-
+ABV Statistics
 ```{r echo = TRUE, include = TRUE, fig.width = 16, fig.height =12}
 
 summary_ABV <- (summary(Beer_Data$ABV))
@@ -270,9 +330,9 @@ summary_ABV
 
 ```
 
-Scatter Plot
+Summary of Findings
 ========================================================
-
+Relationship between ABV and IBU
 ```{r echo = FALSE, include = TRUE, fig.width = 10, fig.height =8}
 
 par(las=2)
@@ -289,3 +349,9 @@ g + geom_point() +
 
 
 ```
+
+Recommendations
+========================================================
+
+Recommendations
+========================================================
