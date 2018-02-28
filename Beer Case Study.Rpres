@@ -21,7 +21,8 @@ Introduction: Client
 
 ***
 
-Business Challenge: Two New Business Units
+Business Challenge:<br>
+Two New Business Units
 - Community Engagement
 - Beer Tourism
 
