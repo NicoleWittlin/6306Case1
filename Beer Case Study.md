@@ -1,6 +1,6 @@
 <style>
 .reveal h3 {
-  padding-bottom: 35px;
+  padding-bottom: 25px;
 }
 
 </style>
@@ -576,11 +576,25 @@ Summary of Findings
 Median Alcohol Content by State
 <img src="Beer Case Study-figure/unnamed-chunk-9-1.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" style="display: block; margin: auto;" />
 
+Summary of Findings
+========================================================
+ABV Statistics
+
+```r
+summary_ABV <- (summary(Beer_Data$ABV))
+
+summary_ABV
+```
+
+```
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+0.00100 0.05000 0.05600 0.05977 0.06700 0.12800      62 
+```
 
 Summary of Findings
 ========================================================
 Median IBU by State
-<img src="Beer Case Study-figure/unnamed-chunk-10-1.png" title="plot of chunk unnamed-chunk-10" alt="plot of chunk unnamed-chunk-10" style="display: block; margin: auto;" />
+<img src="Beer Case Study-figure/unnamed-chunk-11-1.png" title="plot of chunk unnamed-chunk-11" alt="plot of chunk unnamed-chunk-11" style="display: block; margin: auto;" />
 
 Summary of Findings
 ========================================================
@@ -652,20 +666,6 @@ State with highest IBU - Oregon
 </tbody>
 </table>
 
-Summary of Findings
-========================================================
-ABV Statistics
-
-```r
-summary_ABV <- (summary(Beer_Data$ABV))
-
-summary_ABV
-```
-
-```
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-0.00100 0.05000 0.05600 0.05977 0.06700 0.12800      62 
-```
 
 Summary of Findings
 ========================================================
@@ -675,5 +675,3 @@ Relationship between ABV and IBU
 Recommendations
 ========================================================
 
-Recommendations
-========================================================
