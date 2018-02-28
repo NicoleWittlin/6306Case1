@@ -25,6 +25,7 @@ Business Challenge:<br>
 Two New Business Units
 - Community Engagement
 - Beer Tourism
+- Pub Marketing
 
 
 Data Overview
@@ -157,27 +158,6 @@ kable(tail(Beer_Data), "html") %>% kable_styling(bootstrap_options="striped", fu
 
 ```
 
-
-Summary of Findings
-========================================================
-Breweries per State
-```{r, echo=FALSE, include = TRUE, fig.width = 16, fig.height =12}
-
-State_Brews <-  aggregate(Brew_ID ~ State , Brews, length)
-
-colnames(State_Brews) <- c("State","NumberofBreweries")
-
-State_Brews <- State_Brews[order(-State_Brews$NumberofBreweries,decreasing = TRUE),]
-
-
-#par(las=2)
-#par(mar = c(3, 3, 1, 1))
-#barplot(State_Brews$NumberofBreweries, names.arg = State_Brews$State, col = "Red", main = "Number of Breweries per State",  xlab = "Count", ylab = "State",  xlim = c(0,50), horiz = TRUE)
-
-g <- ggplot(State_Brews, aes(x=reorder(State, -NumberofBreweries), y=NumberofBreweries))
-g +geom_bar(stat="identity") + labs(title = "Number of Breweries per State", y="Number of Breweries", x="State")+theme(axis.text.x = element_text(size = 12), axis.text.y = element_text(size = 16))
-
-```
 
 
 Summary of Findings
@@ -326,4 +306,18 @@ g + geom_point() +
 
 Recommendations
 ========================================================
+
+- There is a relationship between ABV and IBU.  Will look into other relationships of Beer for preferences
+
+- Dataset will provide beginning features in regards to alcohol and IBU content and we will continue to get more data on beers and breweries to improve ML algorithm. 
+
+- We will create a machine learning algorithm that will learn the user's beer preferences and suggest new or favorite beers in nearby areas or during travel. 
+
+- Alert will pop-up on phone as other users log in new rare beers in the area.   We will also offer data commercially, for a price, for beer data around the U.S. as to what beers work vs not by location to increase revenue.
+
+- Beer Tourism
+
+
+
+ 
 
