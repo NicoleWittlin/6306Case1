@@ -560,17 +560,22 @@ Data Snapshot: Last 6 Observations
 </table>
 
 
+Summary of Findings
+========================================================
+Breweries per State
+![plot of chunk unnamed-chunk-7](Beer Case Study-figure/unnamed-chunk-7-1.png)
+
 
 Summary of Findings
 ========================================================
 Breweries per State
-<img src="Beer Case Study-figure/unnamed-chunk-7-1.png" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" style="display: block; margin: auto;" />
+<img src="Beer Case Study-figure/unnamed-chunk-8-1.png" title="plot of chunk unnamed-chunk-8" alt="plot of chunk unnamed-chunk-8" style="display: block; margin: auto;" />
 
 
 Summary of Findings
 ========================================================
 Median Alcohol Content by State
-<img src="Beer Case Study-figure/unnamed-chunk-8-1.png" title="plot of chunk unnamed-chunk-8" alt="plot of chunk unnamed-chunk-8" style="display: block; margin: auto;" />
+<img src="Beer Case Study-figure/unnamed-chunk-9-1.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" style="display: block; margin: auto;" />
 
 Summary of Findings
 ========================================================
@@ -590,7 +595,7 @@ summary_ABV
 Summary of Findings
 ========================================================
 Median IBU by State
-<img src="Beer Case Study-figure/unnamed-chunk-10-1.png" title="plot of chunk unnamed-chunk-10" alt="plot of chunk unnamed-chunk-10" style="display: block; margin: auto;" />
+<img src="Beer Case Study-figure/unnamed-chunk-11-1.png" title="plot of chunk unnamed-chunk-11" alt="plot of chunk unnamed-chunk-11" style="display: block; margin: auto;" />
 
 Summary of Findings
 ========================================================
@@ -666,7 +671,7 @@ State with highest IBU - Oregon
 Summary of Findings
 ========================================================
 Relationship between ABV and IBU
-![plot of chunk unnamed-chunk-13](Beer Case Study-figure/unnamed-chunk-13-1.png)
+![plot of chunk unnamed-chunk-14](Beer Case Study-figure/unnamed-chunk-14-1.png)
 
 Recommendations
 ========================================================

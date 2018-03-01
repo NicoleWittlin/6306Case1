@@ -159,6 +159,27 @@ kable(tail(Beer_Data), "html") %>% kable_styling(bootstrap_options="striped", fu
 ```
 
 
+Summary of Findings
+========================================================
+Breweries per State
+```{r, echo=FALSE, include = TRUE, fig.width = 16, fig.height =12}
+
+State_Brews <-  aggregate(Brew_ID ~ State , Brews, length)
+
+colnames(State_Brews) <- c("State","NumberofBreweries")
+
+State_Brews <- State_Brews[order(-State_Brews$NumberofBreweries,decreasing = TRUE),]
+
+
+#par(las=2)
+#par(mar = c(3, 3, 1, 1))
+#barplot(State_Brews$NumberofBreweries, names.arg = State_Brews$State, col = "Red", main = "Number of Breweries per State",  xlab = "Count", ylab = "State",  xlim = c(0,50), horiz = TRUE)
+
+g <- ggplot(State_Brews, aes(x=reorder(State, -NumberofBreweries), y=NumberofBreweries))
+g +geom_bar(stat="identity") + labs(title = "Number of Breweries per State", y="Number of Breweries", x="State")+theme(axis.text.x = element_text(size = 12), axis.text.y = element_text(size = 16))
+
+```
+
 
 Summary of Findings
 ========================================================
